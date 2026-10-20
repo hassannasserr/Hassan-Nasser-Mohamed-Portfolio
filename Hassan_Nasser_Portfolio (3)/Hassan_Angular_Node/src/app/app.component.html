@@ -1,0 +1,542 @@
+<a class="skip-link" href="#work">Skip to selected work</a>
+<div
+  class="reading-line"
+  [style.transform]="'scaleX(' + progress() + ')'"
+></div>
+<header>
+  <a class="wordmark" href="#top" aria-label="Hassan Nasser home"
+    ><span class="logo-mark">h<span>.</span></span
+    ><span class="brand-name">HASSAN<br /><b>NASSER</b></span></a
+  >
+  <nav [class.open]="menu()" aria-label="Main navigation">
+    <a
+      href="#work"
+      [class.current]="activeSection() === 'work'"
+      (click)="menu.set(false)"
+      >Work <sup>04</sup></a
+    ><a
+      href="#about"
+      [class.current]="activeSection() === 'about'"
+      (click)="menu.set(false)"
+      >About</a
+    ><a
+      href="#journey"
+      [class.current]="activeSection() === 'journey'"
+      (click)="menu.set(false)"
+      >Experience</a
+    ><a
+      href="#community"
+      [class.current]="activeSection() === 'community'"
+      (click)="menu.set(false)"
+      >Community</a
+    ><a class="nav-contact" href="#contact" (click)="menu.set(false)"
+      >Let’s talk ↗</a
+    >
+  </nav>
+  <div class="nav-controls"><button class="inspect-toggle" [class.active]="inspect()" [attr.aria-pressed]="inspect()" (click)="inspect.set(!inspect())" title="Toggle visual inspection labels">{{inspect()?'Exit inspect':'⌖ Inspect'}}</button>
+    <button
+      class="theme-toggle"
+      (click)="toggleTheme()"
+      [attr.aria-label]="
+        theme() === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'
+      "
+      [attr.title]="
+        theme() === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'
+      "
+    >
+      <span aria-hidden="true">{{ theme() === "dark" ? "☀" : "☾" }}</span
+      ><span class="theme-label">{{
+        theme() === "dark" ? "Light" : "Dark"
+      }}</span></button
+    ><button
+      class="mobile-toggle"
+      (click)="menu.set(!menu())"
+      [attr.aria-expanded]="menu()"
+      aria-label="Toggle navigation"
+    >
+      {{ menu() ? "Close −" : "Menu +" }}
+    </button>
+  </div>
+</header>
+<main [class.inspecting]="inspect()">
+  <section class="hero" id="top" data-inspect="section.top">
+    <div class="hero-grid-bg" aria-hidden="true"></div>
+    <div class="hero-meta">
+      <span><i class="status-dot"></i> HASSAN NASSER / SOFTWARE TESTER</span
+      ><span>→ Nobody cares about your story till you win so win <b>↗</b></span>
+    </div>
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <p class="small-label">CURIOUS BY NATURE. PRECISE BY PRACTICE.</p>
+        <h1>I follow the flow.<br /><span>Then find the flaws.</span></h1>
+        <p class="hero-intro">
+          I’m <strong>Hassan Nasser.</strong> Software engineer, QA tester, and
+          mentor. I build systems, ask the difficult questions, and share what I
+          learn along the way.
+        </p>
+        <div class="hero-actions">
+          <a class="button primary" href="#work"
+            >Explore the evidence <span>↘</span></a
+          ><a
+            class="button secondary"
+            [href]="data()?.cv || '/Hassan_Nasser_CV.pdf'"
+            download="Hassan_Nasser_CV.pdf"
+            >Download CV <span>↓</span></a
+          >
+        </div>
+        <div class="mode-switch" aria-label="Explore my roles">
+          @for (item of modes; track item; let i = $index) {
+            <button
+              [class.active]="mode() === item"
+              [attr.aria-pressed]="mode() === item"
+              (click)="chooseMode(item)"
+            >
+              <span>0{{ i + 1 }}</span> {{ item }}
+            </button>
+          }
+        </div>
+        <div class="mode-note" aria-live="polite">
+          <span class="mono">{{ notes[mode()].label }}</span>
+          <h2>{{ notes[mode()].headline }}</h2>
+          <p>{{ notes[mode()].copy }}</p>
+        </div>
+      </div>
+      <div class="portrait-composition">
+        <div class="orbit orbit-one" aria-hidden="true"></div>
+        <div class="orbit orbit-two" aria-hidden="true"></div>
+        <span class="portrait-coordinate">PROFILE / HN-001 / CAIRO, EG</span>
+        <figure class="portrait">
+          <img
+            src="/images/profile.png"
+            alt="Hassan Nasser wearing a dark suit"
+            fetchpriority="high"
+          />
+          <figcaption>
+            <span>HASSAN NASSER</span><span>QA TESTER / ENGINEER / MENTOR</span>
+          </figcaption>
+        </figure>
+        <div class="floating-note note-quality">
+          <span class="note-icon">✓</span>
+          <div>
+            <small>01 / INVESTIGATE</small><b>Find it. Understand it.</b>
+          </div>
+        </div>
+        <div class="floating-note note-community">
+          <span class="note-icon">↗</span>
+          <div><small>02 / COMMUNICATE</small><b>Clear steps. Better fixes.</b></div>
+        </div>
+        <div class="portrait-foot">
+          <span class="crosshair">+</span
+          ><span>OBSERVE. REPRODUCE.<br />REPORT. VERIFY.</span
+          ><span class="tiny-code">&lt;hn /&gt;</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-bottom">
+      <div>
+        <strong>3.73<span>/4.00</span></strong
+        ><span>Excellence with Honors · AAST</span>
+      </div>
+      <div><strong>2×</strong><span>ECPC Finals qualifier</span></div>
+      <div><strong>100+</strong><span>Learners mentored at iSchool</span></div>
+      <a href="#work" class="scroll-cue"
+        ><span>SCROLL TO EXPLORE</span><i>↓</i></a
+      >
+    </div>
+  </section>
+  <div class="ticker" aria-hidden="true">
+    <div>
+      OBSERVE THE BEHAVIOR <b>✳</b> REPRODUCE THE ISSUE <b>✳</b> SHARE WHAT YOU
+      LEARN <b>✳</b> VERIFY THE FIX <b>✳</b> OBSERVE THE BEHAVIOR
+      <b>✳</b> REPRODUCE THE ISSUE <b>✳</b> REPORT THE EVIDENCE
+      <b>✳</b> VERIFY THE FIX <b>✳</b>
+    </div>
+  </div>
+  <section class="work section-pad" id="work" data-inspect="section.work">
+    <div class="section-heading" data-reveal>
+      <div>
+        <span class="small-label"><b>01</b> / PROJECT EVIDENCE</span>
+        <h2>The projects.<br /><span>The evidence behind them.</span></h2>
+      </div>
+      <div class="section-aside">
+        <p>
+          A look at the interfaces, the systems behind them,<br />and the
+          testing that connects the two.
+        </p>
+        <div class="filters" aria-label="Filter work">
+          @for (item of filters; track item) {
+            <button
+              [class.active]="filter() === item"
+              [attr.aria-pressed]="filter() === item"
+              (click)="chooseFilter(item)"
+            >
+              {{
+                item === "All"
+                  ? "All projects"
+                  : item === "Build"
+                    ? "Development"
+                    : "QA & Testing"
+              }}
+            </button>
+          }
+        </div>
+      </div>
+    </div>
+    @if (!data() && !error()) {
+      <p class="loading" role="status">Loading projects…</p>
+    }
+    @if (error()) {
+      <p class="error" role="alert">
+        Portfolio data could not load. Please refresh or check your connection.
+      </p>
+    }
+    <div class="project-grid">
+      @for (p of projects; track p.id; let i = $index) {
+        <article
+          class="project" [attr.data-inspect]="'project.'+p.id"
+          [attr.data-accent]="p.accent"
+          [style.view-transition-name]="'project-' + p.id"
+          data-reveal
+        >
+          <button
+            class="project-image"
+            (click)="openProject(p)"
+            [attr.aria-label]="'Explore ' + p.title"
+          >
+            <div class="preview-top">
+              <span class="preview-dots"><i></i><i></i><i></i></span
+              ><span>{{
+                p.visual === "illustration"
+                  ? "QA WORKFLOW / ILLUSTRATION"
+                  : "APPLICATION INTERFACE"
+              }}</span
+              ><span>0{{ i + 1 }}</span>
+            </div>
+            <div
+              class="preview-surface"
+              [class.clinic-preview]="p.id === 'clinic'"
+            >
+              <img
+                [src]="'/images/' + p.image"
+                [alt]="
+                  p.title +
+                  ' ' +
+                  (p.visual === 'illustration'
+                    ? 'testing workflow illustration'
+                    : 'application interface')
+                "
+                loading="lazy"
+              />
+              @if (p.id === "clinic") {
+                <img
+                  class="clinic-extra"
+                  src="/images/clinic-onboarding.png"
+                  alt="Clinic app onboarding interface"
+                  loading="lazy"
+                /><img
+                  class="clinic-extra"
+                  src="/images/clinic-signup.png"
+                  alt="Clinic app sign-up interface"
+                  loading="lazy"
+                />
+              }
+            </div>
+            <div class="preview-bottom">
+              <span>{{
+                p.category === "Test"
+                  ? "OBSERVE → REPRODUCE → VERIFY"
+                  : "INTERFACE × ENGINEERING"
+              }}</span
+              ><span class="image-open">View project ↗</span>
+            </div>
+          </button>
+          <div class="project-body"><div class="dossier-line"><span>CASE / {{p.id.toUpperCase()}}</span><span>{{p.category==='Test'?'QA ENGAGEMENT':'DEVELOPMENT PROJECT'}}</span></div>
+            <div class="project-meta">
+              <span>{{ p.type }}</span
+              ><span>{{ p.year }}</span>
+            </div>
+            <button class="project-title" (click)="openProject(p)">
+              <h3>{{ p.title }}</h3>
+              <span>↗</span>
+            </button>
+            <p>{{ p.subtitle }}</p>
+            <div class="tags">
+              @for (tag of p.stack; track tag) {
+                <span>{{ tag }}</span>
+              }
+            </div>
+          </div>
+        </article>
+      }
+    </div>
+  </section>
+  <section class="about-band section-pad" id="about" data-inspect="section.about">
+    <div class="about-heading" data-reveal>
+      <span class="small-label"><b>02</b> / TESTER PROFILE</span>
+      <h2>Beyond the happy path.<br /><span>That’s where I look.</span></h2>
+    </div>
+    <div class="about-grid">
+      <div class="about-statement" data-reveal>
+        <span class="large-quote" aria-hidden="true">“</span>
+        <p>
+          I like understanding <em>why</em> something works.<br />And what
+          happens<br />when it <em>doesn’t.</em>
+        </p>
+        <div class="signature">Hassan Nasser <span>↗</span></div>
+      </div>
+      <div class="about-detail" data-reveal>
+        <p>
+          I’m a Software Engineering graduate from AAST Aswan, with a background
+          spanning backend development, mobile applications, and hands-on
+          quality assurance.
+        </p>
+        <p>
+          Teaching and community leadership have shaped the way I work: ask
+          clear questions, make complicated ideas understandable, and help the
+          team move forward.
+        </p>
+        <div class="skill-lines">
+          <div>
+            <span>01 / BUILD</span>
+            <p>Python · Node.js · Express · Flask · Flutter · SQL · MongoDB</p>
+          </div>
+          <div>
+            <span>02 / TEST</span>
+            <p>
+              Selenium · pytest · Postman · Jira · Functional, regression &
+              exploratory testing
+            </p>
+          </div>
+          <div>
+            <span>03 / SHARE</span>
+            <p>
+              C++ mentoring · Python instruction · Freelancing coaching ·
+              Community leadership
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  <div class="qa-lab" data-reveal><div class="lab-intro"><span class="small-label">INTERACTIVE SAMPLE / NOT A REAL SITE DEFECT</span><h3>A tiny detail. A useful report.</h3><p>There’s a typo in this sample button. Click it to see how I would document the finding.</p><button class="sample-button" (click)="bugFound.set(true)">{{demoFixed()?'Download report':'Downlaod report'}} <span>↓</span></button></div><div class="defect-report" aria-live="polite">@if(bugFound()){<div class="report-header"><span>DEMO-001</span><span class="severity" [class.resolved]="demoFixed()">{{demoFixed()?'RESOLVED · SAMPLE':'LOW · COPY ISSUE'}}</span></div><h4>Typo in the report download label</h4><dl><div><dt>Steps</dt><dd>Open the sample and read its button label.</dd></div><div><dt>Expected</dt><dd>“Download report”</dd></div><div><dt>Actual</dt><dd>“Downlaod report”</dd></div><div><dt>Impact</dt><dd>Readability and interface polish.</dd></div></dl><div class="report-actions"><button (click)="demoFixed.set(!demoFixed())">{{demoFixed()?'Reopen sample':'Apply fix & verify'}} {{demoFixed()?'↺':'✓'}}</button><button (click)="bugFound.set(false);demoFixed.set(false)">Reset</button></div>}@else{<div class="report-empty"><span class="scan-icon" aria-hidden="true">⌖</span><h4>Observation → evidence</h4><p>Click the sample button to reveal a concise defect report.</p><span class="mono">NO REAL TEST RESULTS ARE SHOWN</span></div>}</div></div>
+  </section>
+  <section class="journey section-pad" id="journey" data-inspect="section.journey">
+    <div class="section-heading" data-reveal>
+      <div>
+        <span class="small-label"><b>03</b> / EXECUTION HISTORY</span>
+        <h2>Every role adds<br /><span>another perspective.</span></h2>
+      </div>
+      <p class="section-aside">
+        Software teams. Classrooms. Real projects.<br />A journey built by
+        doing.
+      </p>
+    </div>
+    <div class="experience-list">
+      @for (job of data()?.experience; track job.company; let i = $index) {
+        <details [open]="i === 0" data-reveal>
+          <summary>
+            <span class="job-date"><i></i>{{ job.date }}</span>
+            <div>
+              <h3>{{ job.role }}</h3>
+              <span>{{ job.company }}</span>
+            </div>
+            <span class="plus" aria-hidden="true">+</span>
+          </summary>
+          <div class="job-description">
+            <p>{{ job.text }}</p>
+          </div>
+        </details>
+      }
+    </div>
+    <div class="education" data-reveal>
+      <div class="education-icon">↗</div>
+      <div>
+        <span class="small-label">FOUNDATIONS / 2022–2026</span>
+        <h3>B.Sc. Software Engineering</h3>
+        <p>
+          AASTMT · Aswan · Excellence with Honors · Ranked 6th in department
+        </p>
+      </div>
+      <strong>3.73<span>/4.00 GPA</span></strong>
+    </div>
+  </section>
+  <section class="community section-pad" id="community" data-inspect="section.community">
+    <div class="section-heading" data-reveal>
+      <div>
+        <span class="small-label"><b>04</b> / COLLABORATION LOG</span>
+        <h2>Quality is a team effort.<br /><span>So is everything else.</span></h2>
+      </div>
+      <p class="section-aside">
+        The rooms, teams, and shared experiences<br />that became part of who I
+        am.
+      </p>
+    </div>
+    <div class="community-grid">
+      @for (c of data()?.community; track c.id; let i = $index) {
+        <article
+          class="community-card"
+          [attr.data-community]="c.id"
+          data-reveal
+        >
+          <figure>
+            <div class="photo-frame">
+              <img
+                [src]="'/images/' + c.image"
+                [alt]="c.name + ' event photo'"
+                loading="lazy"
+              /><span class="photo-number">0{{ i + 1 }}</span>
+            </div>
+            <figcaption>
+              <span>{{ c.label }}</span
+              ><span>↗</span>
+            </figcaption>
+          </figure>
+          <div class="community-copy">
+            <h3>{{ c.name }}</h3>
+            <span class="community-role">{{ c.role }}</span>
+            <p>{{ c.text }}</p>
+          </div>
+        </article>
+      }
+    </div>
+  </section>
+  <section class="contact section-pad" id="contact" data-inspect="section.contact">
+    <div class="contact-grid" aria-hidden="true"></div>
+    <div class="contact-top">
+      <span class="small-label"><b>05</b> / OPEN A CONVERSATION</span
+      ><span class="mono">BASED IN CAIRO. OPEN TO WHAT’S NEXT.</span>
+    </div>
+    <h2 data-reveal>
+      Let’s make<br /><span>good things work.</span><i aria-hidden="true">↗</i>
+    </h2>
+    <p class="contact-note">
+      Have a role, a project, or an interesting problem in mind?<br />I’d like
+      to hear about it.
+    </p>
+    @if (data()?.email) {
+      <div class="contact-actions">
+        <a class="button primary email-me-button" [href]="'mailto:' + data()?.email + '?subject=Let%27s%20work%20together'">Email me <span>↗</span></a>
+        <a class="contact-email" [href]="'mailto:' + data()?.email"
+          >{{ data()?.email }} ↗</a
+        ><button class="copy-btn" (click)="copyEmail()" aria-live="polite">
+          {{ copied() ? "Copied ✓" : "Copy email" }}
+        </button>
+      </div>
+    }
+    <p class="email-help">“Email me” opens your email app with my address filled in. Review your message there and send.</p>
+    <div class="socials">
+      <a [href]="data()?.github" target="_blank" rel="noopener noreferrer"
+        >GitHub ↗</a
+      ><a [href]="data()?.linkedin" target="_blank" rel="noopener noreferrer"
+        >LinkedIn ↗</a
+      ><a
+        [href]="data()?.cv || '/Hassan_Nasser_CV.pdf'"
+        download="Hassan_Nasser_CV.pdf"
+        >Download CV ↓</a
+      ><a href="#top">Back to top ↑</a>
+    </div>
+  </section>
+</main>
+<footer>
+  <a class="wordmark" href="#top"
+    ><span class="logo-mark">h<span>.</span></span
+    ><span class="brand-name">HASSAN<br /><b>NASSER</b></span></a
+  >
+  <p>Built with intention. Improved through curiosity.</p>
+  <span>© 2026 Hassan Nasser</span>
+</footer>
+<dialog
+  #projectDialog
+  (click)="dialogClick($event)"
+  (close)="onDialogClosed()"
+  (keydown)="galleryKeys($event)"
+  aria-labelledby="dialog-title"
+>
+  <div class="dialog-inner">
+    <div class="dialog-top">
+      <span class="small-label">PROJECT DOSSIER</span
+      ><button
+        class="dialog-close"
+        (click)="closeProject()"
+        aria-label="Close project details"
+      >
+        Close ×
+      </button>
+    </div>
+    @if (selected(); as p) {
+      <span class="small-label">{{ p.type }} / {{ p.category }}</span>
+      <h2 id="dialog-title">{{ p.title }}</h2>
+      <p class="dialog-lead">{{ p.subtitle }}</p>
+      <div class="gallery-stage" [class.zoomed]="zoom()">
+        <button
+          class="gallery-image-button"
+          (click)="zoom.set(!zoom())"
+          [attr.aria-label]="
+            zoom() ? 'Fit image in gallery' : 'Enlarge project screenshot'
+          "
+        >
+          <img
+            class="dialog-image"
+            [src]="'/images/' + currentImage"
+            [alt]="p.title + ' screenshot ' + (slide() + 1)"
+          />
+        </button>
+      </div>
+      <div class="gallery-controls">
+        <span>{{
+          p.visual === "illustration"
+            ? "WORKFLOW ILLUSTRATION"
+            : "SCREEN " + (slide() + 1) + " / " + p.gallery.length
+        }}</span
+        ><button (click)="zoom.set(!zoom())">
+          {{ zoom() ? "Fit to view −" : "Enlarge +" }}
+        </button>
+        @if (p.gallery.length > 1) {
+          <div>
+            <button (click)="changeSlide(-1)" aria-label="Previous screenshot">
+              ←</button
+            ><button (click)="changeSlide(1)" aria-label="Next screenshot">
+              →
+            </button>
+          </div>
+        }
+      </div>
+      @if (p.gallery.length > 1) {
+        <div class="gallery-thumbnails" aria-label="Choose screenshot">
+          @for (photo of p.gallery; track photo; let j = $index) {
+            <button
+              [class.active]="slide() === j"
+              [attr.aria-pressed]="slide() === j"
+              [attr.aria-label]="'Show screenshot ' + (j + 1)"
+              (click)="slide.set(j); zoom.set(false)"
+            >
+              <img [src]="'/images/' + photo" [alt]="'Screenshot ' + (j + 1)" />
+            </button>
+          }
+        </div>
+      }
+      <div class="project-detail-copy">
+        <p>{{ p.description }}</p>
+        <h3>{{ p.role }}</h3>
+        <ul>
+          @for (note of p.notes; track note) {
+            <li>{{ note }}</li>
+          }
+        </ul>
+        <div class="tags">
+          @for (tag of p.stack; track tag) {
+            <span>{{ tag }}</span>
+          }
+        </div>
+        @if (p.link) {
+          <a
+            class="text-link"
+            [href]="p.link"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Visit project ↗</a
+          >
+        }
+      </div>
+    }
+  </div>
+</dialog>

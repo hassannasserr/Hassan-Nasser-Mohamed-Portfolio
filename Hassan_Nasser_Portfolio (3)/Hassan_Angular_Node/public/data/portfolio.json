@@ -1,0 +1,203 @@
+{
+  "name": "Hassan Nasser",
+  "location": "Cairo, Egypt",
+  "email": "elkashefhassan1@gmail.com",
+  "github": "https://github.com/hassannasserr",
+  "linkedin": "https://www.linkedin.com/in/hassan-elkashef-710582249/",
+  "cv": "/Hassan_Nasser_CV.pdf",
+  "projects": [
+    {
+      "id": "machinify",
+      "title": "Machinify",
+      "category": "Build",
+      "subtitle": "Listening to machines before they fail.",
+      "type": "Graduation team project",
+      "year": "2026",
+      "description": "Sensor data meets AI to help predict industrial machine failures. A Flutter mobile experience brings monitoring and alerts closer to the people who need them.",
+      "stack": [
+        "Flutter",
+        "Python",
+        "Node.js / Express",
+        "MongoDB",
+        "ML"
+      ],
+      "role": "Team project · Testing & validation",
+      "notes": [
+        "AI-powered predictive maintenance using industrial sensor data to anticipate equipment failures.",
+        "Contributed to unit and white-box testing, including boundary and branch coverage.",
+        "Explored fault-injection scenarios to validate system behavior; graduation project graded A+."
+      ],
+      "image": "machinify.png",
+      "link": "",
+      "gallery": [
+        "machinify.png"
+      ],
+      "visual": "ui",
+      "accent": "orange"
+    },
+    {
+      "id": "progup",
+      "title": "ProgUp",
+      "category": "Build",
+      "subtitle": "A little more structure. A little less stress.",
+      "type": "Application project",
+      "year": "Project",
+      "description": "An AI scheduler combining tasks, Pomodoro sessions, and personalized recommendations through a Flutter app and Flask backend.",
+      "stack": [
+        "Flutter",
+        "Flask",
+        "MySQL",
+        "scikit-learn"
+      ],
+      "role": "Application development · Backend & ML integration",
+      "notes": [
+        "JWT authentication and REST APIs for tasks and schedules.",
+        "RandomForestRegressor model to support personalized recommendations.",
+        "Integrated calendar tasks and Pomodoro activities into one workflow."
+      ],
+      "image": "progup.png",
+      "link": "",
+      "gallery": [
+        "progup.png"
+      ],
+      "visual": "ui",
+      "accent": "mint"
+    },
+    {
+      "id": "clinic",
+      "title": "Dr. Ashraf Clinic",
+      "category": "Build",
+      "subtitle": "A clearer connection between doctor and patient.",
+      "type": "Healthcare application",
+      "year": "Project",
+      "description": "A healthcare management application supporting appointments, prescriptions, and patient records. Built with a Flask backend and MySQL, with Firebase Cloud Messaging and a Gemini-powered chatbot.",
+      "stack": [
+        "Flask",
+        "MySQL",
+        "Firebase FCM",
+        "Gemini API"
+      ],
+      "role": "Application development · Backend services",
+      "notes": [
+        "Appointment booking and prescription workflows for a clinic management experience.",
+        "Firebase Cloud Messaging supports appointment reminders.",
+        "Gemini-powered chatbot assists users within the application."
+      ],
+      "image": "clinic-home.png",
+      "gallery": [
+        "clinic-home.png",
+        "clinic-onboarding.png",
+        "clinic-signup.png"
+      ],
+      "visual": "ui",
+      "accent": "violet",
+      "link": ""
+    },
+    {
+      "id": "portal",
+      "title": "Job Portal QA",
+      "category": "Test",
+      "subtitle": "Following the happy path. Then leaving it.",
+      "type": "Freelance QA work",
+      "year": "2026",
+      "description": "Exploratory and functional testing, responsive checks, and Selenium automation for a multi-role job portal. Finding the unexpected—and making it reproducible.",
+      "stack": [
+        "Selenium",
+        "pytest",
+        "Python",
+        "Manual QA"
+      ],
+      "role": "QA tester · Manual testing & automation",
+      "notes": [
+        "Covered job seeker, company, and admin workflows during manual testing.",
+        "Automated valid and invalid login scenarios and job search using Selenium and pytest.",
+        "Used explicit waits and reusable driver fixtures; documented issues with clear reproduction steps."
+      ],
+      "image": "job-portal-cover.png",
+      "link": "",
+      "gallery": [
+        "job-portal-cover.png"
+      ],
+      "visual": "illustration",
+      "accent": "blue"
+    }
+  ],
+  "experience": [
+    {
+      "company": "Independent project",
+      "role": "Freelance QA Tester",
+      "date": "Sep — Oct 2026",
+      "text": "Tested multi-role job portal workflows, responsive behavior, and AI-assisted features. Created Selenium / Python / pytest checks for smoke, login, and job search; documented defects and retest results."
+    },
+    {
+      "company": "DEPI · Elharefa",
+      "role": "Freelancing Coach",
+      "date": "Mar 2026 — Present",
+      "text": "Coach learners on freelancing, portfolio development, proposal writing, and professional profiles through weekly sessions, practical assignments, and measurable goals."
+    },
+    {
+      "company": "Bayanatz",
+      "role": "Part-Time QA Tester",
+      "date": "Apr — Aug 2026",
+      "text": "Tested web and mobile features for functionality, validation, usability, and visual consistency. Performed regression, cross-browser, responsive, and RTL checks; documented defects and verified fixes with developers."
+    },
+    {
+      "company": "iSchool · DEMI",
+      "role": "Part-Time Coding Instructor",
+      "date": "Apr — Jun 2026",
+      "text": "Delivered project-based Python and mBlock sessions for Grade 6 students. Mentored 100+ learners in programming fundamentals, structured problem solving, and computational thinking."
+    },
+    {
+      "company": "National Telecommunication Institute",
+      "role": "MEAN Stack Trainee",
+      "date": "Oct — Dec 2025",
+      "text": "Completed 210 hours of MongoDB, Express.js, Angular, and Node.js training, building full-stack applications with authentication and database integration."
+    },
+    {
+      "company": "Aswan Heart Center",
+      "role": "Back-End Development Intern",
+      "date": "Aug — Dec 2024",
+      "text": "Developed backend services with Sanic and Docker, working with Oracle databases and Linux administration as part of the internship rotation at the Magdi Yacoub Foundation."
+    },
+    {
+      "company": "Agricultural Bank of Egypt",
+      "role": "IT Department Intern",
+      "date": "Sep 2024",
+      "text": "Assisted with SQL report automation, daily IT operations, and Linux administration tasks."
+    }
+  ],
+  "community": [
+    {
+      "id": "icpc",
+      "name": "ICPC AAST Aswan",
+      "role": "General Manager · Instructor · Mentor",
+      "text": "From explaining C++ to helping run the community. Previously Vice Head of Training, then General Manager, supporting newcomers, contests, and training sessions.",
+      "image": "icpc.png",
+      "label": "The problem-solvers"
+    },
+    {
+      "id": "gdsc",
+      "name": "GDSC / GDG On Campus",
+      "role": "Programming Head · 2024–2025",
+      "text": "Led programming activities at AAST Aswan, including a two-day desktop development workshop and student mini projects.",
+      "image": "gdg.jpeg",
+      "label": "The builders"
+    },
+    {
+      "id": "ieee",
+      "name": "IEEE Aswan SB",
+      "role": "HR · PR · Event operations",
+      "text": "Contributed to recruitment, member evaluation, and team coordination. Registration Supervisor at Upper Egypt In Action 7 and Registration Head at BeIn Camp 6.",
+      "image": "ieee.jpg",
+      "label": "The people behind it"
+    },
+    {
+      "id": "ecpc",
+      "name": "Egyptian Collegiate Programming Contest (ECPC)",
+      "role": "Finalist × 2 → Volunteer",
+      "text": "After qualifying twice for the finals, joined ECPC operations as a volunteer in 2026. A different view of the competition, from behind the scenes.",
+      "image": "ecpc.jpeg",
+      "label": "The other side of the contest"
+    }
+  ]
+}
