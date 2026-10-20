@@ -1,0 +1,16 @@
+{
+  "framework": "angular",
+  "installCommand": "npm ci --include=dev",
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist/portfolio/browser",
+  "rewrites": [
+    {
+      "source": "/api/portfolio",
+      "destination": "/data/portfolio.json"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}
