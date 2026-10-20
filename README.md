@@ -117,8 +117,15 @@ Set `PORT` if your hosting provider requires it.
 Static hosting: serve `dist/portfolio/browser` with SPA fallback. Angular falls
 back to `/data/portfolio.json` when `/api/portfolio` is unavailable. Download links
 use the browser's download attribute; Node additionally sends attachment headers.
-There is no email form backend or database. The Email me button opens a mail client with your address and a subject prefilled; the copy
-button copies your address.
+The contact form sends messages through the Node server and Resend. Set
+`RESEND_API_KEY` in the server environment before deploying. You can also set
+`RESEND_FROM_EMAIL` to a verified Resend sender (the default is Resend's
+onboarding sender). The recipient is the email address in
+`public/data/portfolio.json`. Static-only hosting cannot send contact messages;
+deploy the Node server or connect the form endpoint to an equivalent backend.
+If the form says that the email service is not configured, add these variables
+to the environment of the deployed Node service and restart it; adding them to
+the Angular/static hosting environment is not enough.
 
 The previous hosted HTML site is separate. This ZIP contains the updated Angular
 and Node project; editing local files does not update that older hosted site.

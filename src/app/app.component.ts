@@ -7,7 +7,7 @@ import {
   ElementRef,
   ViewChild,
 } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 import { catchError } from "rxjs";
 interface Project {
   id: string;
@@ -80,6 +80,9 @@ export class AppComponent implements AfterViewInit, OnDestroy {
   theme = signal<"dark" | "light">("dark");
   slide = signal(0);
   zoom = signal(false);
+  contactSending = signal(false);
+  contactStatus = signal<"idle" | "success" | "error">("idle");
+  contactError = signal("");
   modes = ["Test", "Build", "Teach"];
   filters = ["All", "Build", "Test"];
   notes: Record<string, { headline: string; copy: string; label: string }> = {
@@ -200,6 +203,37 @@ export class AppComponent implements AfterViewInit, OnDestroy {
       window.location.href = "mailto:" + email;
     }
   }
+  submitContact(event: SubmitEvent) {
+      event.preventDefault();
+      const form = event.currentTarget as HTMLFormElement;
+      if (this.contactSending()) return;
+      const formData = new FormData(form);
+      const payload = {
+        name: String(formData.get("name") || "").trim(),
+        email: String(formData.get("email") || "").trim(),
+        message: String(formData.get("message") || "").trim(),
+        website: String(formData.get("website") || "").trim(),
+      };
+      this.contactStatus.set("idle");
+      this.contactError.set("");
+      this.contactSending.set(true);
+      this.http.post("/api/contact", payload).subscribe({
+        next: () => {
+          form.reset();
+          this.contactStatus.set("success");
+          this.contactSending.set(false);
+        },
+        error: (error: HttpErrorResponse) => {
+          this.contactError.set(
+            typeof error.error?.error === "string"
+              ? error.error.error
+              : "The contact service is unavailable. Please make sure the Node server and email service are configured.",
+          );
+          this.contactStatus.set("error");
+          this.contactSending.set(false);
+        },
+      });
+    }
   scroll = () => {
     const range = document.documentElement.scrollHeight - innerHeight;
     this.progress.set(range > 0 ? scrollY / range : 0);

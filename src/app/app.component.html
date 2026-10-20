@@ -413,16 +413,43 @@
       to hear about it.
     </p>
     @if (data()?.email) {
-      <div class="contact-actions">
-        <a class="button primary email-me-button" [href]="'mailto:' + data()?.email + '?subject=Let%27s%20work%20together'">Email me <span>↗</span></a>
-        <a class="contact-email" [href]="'mailto:' + data()?.email"
-          >{{ data()?.email }} ↗</a
-        ><button class="copy-btn" (click)="copyEmail()" aria-live="polite">
-          {{ copied() ? "Copied ✓" : "Copy email" }}
-        </button>
-      </div>
+      <form class="contact-form" (submit)="submitContact($event)">
+        <div class="contact-form-fields">
+          <label>
+            <span>Your name</span>
+            <input name="name" type="text" autocomplete="name" required maxlength="100" />
+          </label>
+          <label>
+            <span>Your email</span>
+            <input name="email" type="email" autocomplete="email" required maxlength="254" />
+          </label>
+        </div>
+        <label>
+          <span>Message</span>
+          <textarea name="message" rows="6" required maxlength="5000"></textarea>
+        </label>
+        <label class="contact-trap" aria-hidden="true">
+          <span>Website</span>
+          <input name="website" type="text" tabindex="-1" autocomplete="off" />
+        </label>
+        <div class="contact-submit-row">
+          <button class="button primary" type="submit" [disabled]="contactSending()">
+            {{ contactSending() ? "Sending..." : "Send message" }} <span>↗</span>
+          </button>
+          @if (contactStatus() === "success") {
+            <p class="contact-status success" aria-live="polite">
+              Message sent. Thanks for reaching out.
+            </p>
+          }
+          @if (contactStatus() === "error") {
+            <p class="contact-status error" aria-live="polite">
+              {{ contactError() }}
+            </p>
+          }
+        </div>
+      </form>
     }
-    <p class="email-help">“Email me” opens your email app with my address filled in. Review your message there and send.</p>
+    <p class="email-help">Your message will be sent directly to {{ data()?.email }}.</p>
     <div class="socials">
       <a [href]="data()?.github" target="_blank" rel="noopener noreferrer"
         >GitHub ↗</a
