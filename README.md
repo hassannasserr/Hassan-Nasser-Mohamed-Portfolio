@@ -117,12 +117,16 @@ Set `PORT` if your hosting provider requires it.
 Static hosting: serve `dist/portfolio/browser` with SPA fallback. Angular falls
 back to `/data/portfolio.json` when `/api/portfolio` is unavailable. Download links
 use the browser's download attribute; Node additionally sends attachment headers.
+The included `api/contact.js` is a Vercel serverless function for the contact
+form when deployed with `vercel.json`.
 The contact form sends messages through the Node server and Resend. Set
 `RESEND_API_KEY` in the server environment before deploying. You can also set
 `RESEND_FROM_EMAIL` to a verified Resend sender (the default is Resend's
 onboarding sender). The recipient is the email address in
 `public/data/portfolio.json`. Static-only hosting cannot send contact messages;
-deploy the Node server or connect the form endpoint to an equivalent backend.
+deploy the Node server, deploy this Vercel function, or connect the form
+endpoint to an equivalent backend. For Vercel, add both variables under
+Project Settings → Environment Variables and redeploy.
 If the form says that the email service is not configured, add these variables
 to the environment of the deployed Node service and restart it; adding them to
 the Angular/static hosting environment is not enough.
