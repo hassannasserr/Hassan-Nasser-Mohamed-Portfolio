@@ -1,101 +1,100 @@
-# Hassan Nasser — Personal Portfolio
+# Hassan Nasser | QA Portfolio
 
-A complete **Angular 20 + Node.js / Express 5** project, using the supplied
-project screenshots, community photographs, profile image, and CV.
-Dark mode is the default. Light mode is available from the header, and the
-visitor's choice is saved on their device.
+A testing-inspired portfolio presenting my software projects, QA experience, teaching, and community work. The design borrows the visual language of inspection tools and defect reports while keeping the work itself easy to explore.
 
-## تشغيل المشروع
+**[View the portfolio](https://hassanelkashefportfolio.vercel.app)** · [LinkedIn](https://www.linkedin.com/in/hassan-elkashef-710582249/) · [Email](mailto:elkashefhassan1@gmail.com)
 
-ثبّت Node.js **22.12 أو أحدث من نسخ LTS**، وافتح Terminal داخل فولدر المشروع:
+![Angular](https://img.shields.io/badge/Angular-20-DD0031?logo=angular&logoColor=white)
+![Node.js](https://img.shields.io/badge/Node.js-22.12%2B-339933?logo=nodedotjs&logoColor=white)
+![Express](https://img.shields.io/badge/Express-5-444444?logo=express&logoColor=white)
+
+## Explore the portfolio
+
+- **Project dossiers:** descriptions, technology stacks, interface previews, and image galleries.
+- **Inspect mode:** optional annotations identifying sections and projects.
+- **Sample defect report:** a labeled demonstration of observing an issue, documenting it, applying a fix, and verifying the corrected label.
+- **Experience and community:** professional roles, education, teaching, and volunteering.
+- **Dark/light themes:** saved locally between visits.
+- **CV download and contact:** downloadable PDF, email links, and a configurable contact form.
+- **Responsive interactions:** mobile navigation, keyboard-accessible dialogs, image zoom, scroll reveals, and reduced-motion support.
+
+The sample issue is an interactive demonstration, not a real defect or an automated test execution. The Job Portal cover is illustrative; the other featured app visuals are interface screenshots.
+
+### Featured application interfaces
+
+<p align="center">
+  <img src="public/images/machinify.png" width="440" alt="Machinify, one of the projects featured in the portfolio" />
+  <img src="public/images/progup.png" width="260" alt="ProgUp, one of the projects featured in the portfolio" />
+</p>
+
+## Technology and architecture
+
+| Layer | Implementation |
+| --- | --- |
+| Frontend | Angular 20, TypeScript, signals, and HttpClient |
+| Styling | CSS themes, responsive layouts, transitions, and reduced-motion handling |
+| Node hosting | Express 5 serves the API, images, CV, and compiled Angular application |
+| Content | Editable JSON in `public/data/portfolio.json` |
+| Contact email | Resend via Express or the Vercel function in `api/contact.js` |
+| Deployment | Angular build with a Vercel configuration |
+
+Angular requests `/api/portfolio` and can fall back to `/data/portfolio.json`. Portfolio browsing can run statically; contact-form delivery requires a configured server-side email endpoint.
+
+## Run locally
+
+Use Node.js 22.12+ from a compatible LTS release.
 
 ```bash
+git clone https://github.com/hassannasserr/Hassan-Nasser-Mohamed-Portfolio.git
+cd Hassan-Nasser-Mohamed-Portfolio
 npm ci
 npm run dev
 ```
 
-افتح **http://localhost:4200**. Angular يعيد تحميل تعديلات الكود تلقائيًا،
-والـNode API يعمل على بورت 3000 عن طريق proxy.
+Open **http://localhost:4200**. Angular proxies `/api` requests to the Express server on port 3000.
 
-لتشغيل النسخة النهائية كاملة من Node:
+For the production build:
 
 ```bash
 npm run build
 npm start
 ```
 
-افتح **http://localhost:3000**. أو شغّل `START-WINDOWS.bat` بعد تثبيت Node.js.
-لا تفتح `src/index.html` مباشرة؛ Angular يحتاج الأوامر أعلاه.
-نسخة build جاهزة موجودة في `dist/portfolio/browser`، لكن أعد البناء بعد أي تعديل.
+Open **http://localhost:3000**. Windows users can also use `START-WINDOWS.bat`.
 
-## ما تم إضافته
+## Configure contact delivery
 
-- واجهة داكنة افتراضيًا، ووضع فاتح مع حفظ الاختيار وتقليل وميض تحميل الصفحة.
-- صورتك الشخصية وصور ICPC وGDG وIEEE وECPC الفعلية.
-- واجهات Machinify وProgUp، والثلاث صور الخاصة بـDr. Ashraf Clinic.
-- عرض صور الواجهات كاملة بـobject-fit:contain، مع معرض وتكبير وتنقل بالأسهم للعيادة.
-- مشروع Job Portal QA مع رسم توضيحي مُعرّف بوضوح؛ لم يتم تقديمه كلقطة حقيقية للموقع.
-- Download CV في المقدمة والتواصل؛ Express يرسل ملف PDF كمرفق للتحميل.
-- بيانات التواصل وروابط GitHub وLinkedIn من الـCV المرفق.
-- تواريخ الخبرات محدثة من نسخة الـCV الحالية.
-- انتقالات دخول، reveal مع التمرير، تحريك الصور، تبويبات الأدوار، فلاتر المشاريع،
-  نافذة تفاصيل، خبرات accordion، مؤشر تقدم الصفحة، وملاحة موبايل.
-- دعم لوحة المفاتيح وEscape وprefers-reduced-motion.
-
-## الصور والملفات
-
-الصور المرفقة منسوخة كما هي؛ لم يتم تعديل الملامح أو إعادة توليد الصور.
-
-| File in public/images/ | Usage |
+| Environment variable | Purpose |
 | --- | --- |
-| profile.png | Your profile photograph |
-| machinify.png | Machinify UI |
-| progup.png | ProgUp UI |
-| clinic-home.png | Clinic home screen |
-| clinic-onboarding.png | Clinic onboarding screen |
-| clinic-signup.png | Clinic registration screen |
-| ecpc.jpeg | ECPC volunteering |
-| gdg.jpeg | GDG / GDSC workshop |
-| ieee.jpg | IEEE activity |
-| icpc.png | ICPC community |
-| job-portal.svg | QA workflow illustration |
+| `RESEND_API_KEY` | Server-side email API credential |
+| `RESEND_FROM_EMAIL` | Sender address authorized by your email provider |
+| `PORT` | Optional Express listening port; defaults to `3000` |
 
-الـCV في `public/Hassan_Nasser_CV.pdf`، وهو نفس الملف المرفق بدون تغيير.
-لتحديثه، استبدله بنفس الاسم ثم أعد البناء.
+Set these variables in the process or hosting environment. The code does not automatically load a `.env` file. Keep credentials out of frontend code and Git history.
 
-## تعديل المحتوى
+For example, in PowerShell before `npm run dev`:
 
-**public/data/portfolio.json** يحتوي على:
-المشاريع، الصور ومعارضها، الخبرات، التطوع، الإيميل، GitHub، LinkedIn، ومسار الـCV.
-
-- `image`: صورة كارت المشروع، باسم الملف والامتداد.
-- `gallery`: صور معرض المشروع، بنفس ترتيب عرضها.
-- `visual`: استخدم `ui` لواجهات حقيقية أو `illustration` لرسم توضيحي.
-- `link`: أضف رابط GitHub أو العرض الحي ليظهر زر زيارة المشروع.
-- `cv`: مسار ملف الـPDF العام.
-
-نصوص المقدمة والأقسام في `src/app/app.component.html`.
-نصوص Build / Test / Teach ومنطق التفاعل في `src/app/app.component.ts`.
-ألوان الثيمين وتنسيق الموبايل والحركات في `src/styles.css`.
-
-أثناء التطوير: اعمل refresh بعد تعديل ملف JSON.
-قبل الرفع: شغّل build جديد ليتم نسخ الصور والمحتوى والـCV إلى النسخة النهائية.
-
-## Structure
-
-```
-src/app/app.component.ts       Angular state, themes, filters, gallery, scroll
-src/app/app.component.html     Page sections and image rendering
-src/styles.css                Dark/light design, responsive layout, motion
-public/data/portfolio.json    Editable content and verified contact links
-public/images/                Supplied images and labeled QA illustration
-public/Hassan_Nasser_CV.pdf   Original CV download
-server/app.mjs                API, CV attachment route, Angular hosting
-server/index.mjs              Node entry point (PORT defaults to 3000)
-server/server.test.mjs        Production routes and asset/download checks
+```powershell
+$env:RESEND_API_KEY="YOUR_API_KEY"
+$env:RESEND_FROM_EMAIL="Portfolio <contact@your-domain.com>"
 ```
 
-## Verification
+The recipient comes from the `email` field in `public/data/portfolio.json`. Requests without an email-service credential receive a configuration error; provider delivery is not covered by the existing server test.
+
+## Personalize the content
+
+| File or folder | Change here |
+| --- | --- |
+| `public/data/portfolio.json` | Projects, experience, community entries, links, and recipient email |
+| `public/images/` | Project screenshots and photographs |
+| `public/Hassan_Nasser_CV.pdf` | Downloadable CV |
+| `src/app/app.component.html` | Section content and markup |
+| `src/app/app.component.ts` | Themes, filters, gallery, contact submission, and sample report state |
+| `src/styles.css` | Colors, layout, motion, and responsive rules |
+
+Rebuild before deployment after changing public content or assets.
+
+## Checks
 
 ```bash
 npm run check
@@ -103,45 +102,33 @@ npm run build
 npm run test:server
 ```
 
-Checks cover Angular production compilation, strict TypeScript, API routes,
-compiled HTML and JavaScript delivery, all project/gallery/community image URLs,
-static JSON fallback, and exact PDF download bytes with attachment headers.
-Visual browser QA was unavailable in the creation environment. Review the
-final composition on your own desktop and phone before public release.
+The server test expects a completed build and checks portfolio data, API errors, compiled JavaScript delivery, image URLs, and byte-for-byte CV downloads. It does not exercise browser interactions or real email delivery.
 
-## Hosting
+## Deploy
 
-Node hosting: `npm ci`, `npm run build`, then `npm start`.
-Set `PORT` if your hosting provider requires it.
+### Vercel
 
-Static hosting: serve `dist/portfolio/browser` with SPA fallback. Angular falls
-back to `/data/portfolio.json` when `/api/portfolio` is unavailable. Download links
-use the browser's download attribute; Node additionally sends attachment headers.
-The included `api/contact.js` is a Vercel serverless function for the contact
-form when deployed with `vercel.json`.
-The contact form sends messages through the Node server and Resend. Set
-`RESEND_API_KEY` in the server environment before deploying. You can also set
-`RESEND_FROM_EMAIL` to a verified Resend sender (the default is Resend's
-onboarding sender). The recipient is the email address in
-`public/data/portfolio.json`. Static-only hosting cannot send contact messages;
-deploy the Node server, deploy this Vercel function, or connect the form
-endpoint to an equivalent backend. For Vercel, add both variables under
-Project Settings → Environment Variables and redeploy.
-If the form says that the email service is not configured, add these variables
-to the environment of the deployed Node service and restart it; adding them to
-the Angular/static hosting environment is not enough.
+Import this repository and use the included `vercel.json`:
 
-The previous hosted HTML site is separate. This ZIP contains the updated Angular
-and Node project; editing local files does not update that older hosted site.
-The archive excludes node_modules, build caches, credentials, and Git history.
+| Setting | Value |
+| --- | --- |
+| Install command | `npm ci --include=dev` |
+| Build command | `npm run build` |
+| Output directory | `dist/portfolio/browser` |
 
-## QA workspace theme update
+Set email credentials in the deployment environment if the contact form is enabled. Verify that `/api/contact` reaches `api/contact.js` rather than the SPA fallback before relying on message delivery.
 
-The same page structure now uses a defect-report visual theme: graphite surfaces,
-amber annotations, case identifiers, and a QA-first introduction. The Inspect
-button shows section and project labels as visual annotations. The About section
-includes a clearly labeled sample typo report; Apply fix changes the sample label
-and marks that demonstration resolved. It does not represent a real project defect
-or an automated test execution. The Job Portal cover is an illustrative generated
-cover, not an actual screenshot or test result. Dark/light modes, galleries, photos,
-CV download, and email contact remain available.
+### Node host
+
+Install dependencies, run `npm run build`, then start with `npm start`. Configure the environment variables on the host. The Express app serves both the frontend and its API.
+
+## Project structure
+
+```text
+src/                  Angular application and styles
+public/               Content, images, favicon, and CV
+server/               Express application and route tests
+api/contact.js        Vercel contact handler
+angular.json          Angular build configuration
+vercel.json           Deployment and rewrite configuration
+```
