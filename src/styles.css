@@ -1619,7 +1619,9 @@ dialog[open] {
     font-size: 6px;
   }
   .portrait img {
-    height: 430px;
+    height: auto;
+    aspect-ratio: 3 / 4;
+    max-width: 100%;
   }
   .hero-actions {
     gap: 8px;
@@ -2056,7 +2058,9 @@ dialog[open] {
     font-size: 34px;
   }
   .portrait img {
-    height: 360px;
+    height: auto;
+    aspect-ratio: 3 / 4;
+    max-width: 100%;
   }
   .floating-note {
     padding: 10px;
